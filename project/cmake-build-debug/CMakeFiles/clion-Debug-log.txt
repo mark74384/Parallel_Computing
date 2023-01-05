@@ -1,0 +1,16 @@
+"D:\prog\Clion\CLion 2021.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=D:/prog/Clion/CLion 2021.3/bin/ninja/win/ninja.exe" '-D OpenMP_CXX_FLAGS=-fopenmp -D "OpenMP_C_FLAGS=-fopenmp'D:/Mark.computer/Mark4.computer/parallel computing/project/.." -G Ninja -S "D:\Mark.computer\Mark4.computer\parallel computing\project" -B "D:\Mark.computer\Mark4.computer\parallel computing\project\cmake-build-debug"
+CMake Warning:
+  Ignoring extra path from command line:
+
+   "D:/Mark.computer/Mark4.computer/parallel computing/project/cmake-build-debug/'-D"
+
+
+CMake Warning:
+  Ignoring extra path from command line:
+
+   "OpenMP_CXX_FLAGS=-fopenmp"
+
+
+-- Configuring done
+-- Generating done
+-- Build files have been written to: D:/Mark.computer/Mark4.computer/parallel computing/project/cmake-build-debug

@@ -1,0 +1,3 @@
+D:/Mark.computer/Mark4.computer/parallel computing/project/cmake-build-debug/CMakeFiles/project.dir
+D:/Mark.computer/Mark4.computer/parallel computing/project/cmake-build-debug/CMakeFiles/edit_cache.dir
+D:/Mark.computer/Mark4.computer/parallel computing/project/cmake-build-debug/CMakeFiles/rebuild_cache.dir
