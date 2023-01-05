@@ -9,13 +9,13 @@
 #include <chrono>
 #include <iomanip>
 
+using namespace std;
 
 // Matrix multiplication function
-void multiply(const std::vector<std::vector<int>> &A,
-              const std::vector<std::vector<int>> &B,
-              std::vector<std::vector<int>> &C,
-              int row, int col)
-{
+void multiply(const vector<vector<int>> &A,
+              const vector<vector<int>> &B,
+              vector<vector<int>> &C,
+              int row, int col) {
     int sum = 0;
     for (int i = 0; i < A[row].size(); i++) {
         sum += A[row][i] * B[i][col];
@@ -23,18 +23,17 @@ void multiply(const std::vector<std::vector<int>> &A,
     C[row][col] = sum;
 }
 
-int main()
-{
+int main() {
     // Initialize random number generator
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<int> dis(-10, 10);
+    random_device rd;
+    mt19937 gen(rd());
+    uniform_int_distribution<int> dis(-10, 10);
 
     // Generate matrices A and B randomly
     int rows = 2;
     int cols = 2;
-    std::vector<std::vector<int>> A(rows, std::vector<int>(cols));
-    std::vector<std::vector<int>> B(cols, std::vector<int>(rows));
+    vector<vector<int>> A(rows, vector<int>(cols));
+    vector<vector<int>> B(cols, vector<int>(rows));
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             A[i][j] = dis(gen);
@@ -42,7 +41,7 @@ int main()
         }
     }
 
-    std::vector<std::vector<int>> C(A.size(), std::vector<int>(B[0].size(), 0));
+    vector<vector<int>> C(A.size(), vector<int>(B[0].size(), 0));
 
     // Get number of rows and columns in matrix C
     rows = C.size();
@@ -52,10 +51,10 @@ int main()
     int p = 4;
 
     // Create a vector to store the threads
-    std::vector<std::thread> threads;
+    vector<thread> threads;
 
     // Record start time
-    auto start = std::chrono::high_resolution_clock::now();
+    auto start = chrono::high_resolution_clock::now();
 
     // Spawn p threads to perform matrix multiplication
     for (int i = 0; i < p; i++) {
@@ -74,27 +73,27 @@ int main()
     }
 
     // Wait for all threads to finish
-    for (auto &t : threads) {
+    for (auto &t: threads) {
         t.join();
     }
 
     // Stop the timer
-    auto end = std::chrono::high_resolution_clock::now();
+    auto end = chrono::high_resolution_clock::now();
 
     // Calculate the elapsed time in milliseconds
-    auto elapsed_time = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start).count();
+    auto elapsed_time = chrono::duration_cast<chrono::nanoseconds>(end - start).count();
     elapsed_time *= 1e-9;
 
-    std::cout << "Time taken by program is : " << std::fixed
-              << elapsed_time << std::setprecision(9);
-    std::cout << " sec" << std::endl;
+    cout << "Time taken by program is : " << fixed
+         << elapsed_time << setprecision(9);
+    cout << " sec" << endl;
 
     // Print the result matrix
-    for (const auto &row : C) {
-        for (const auto &elem : row) {
-            std::cout << elem << ' ';
+    for (const auto &row: C) {
+        for (const auto &elem: row) {
+            cout << elem << ' ';
         }
-        std::cout << std::endl;
+        cout << endl;
     }
 
     return 0;
